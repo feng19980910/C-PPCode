@@ -10,7 +10,6 @@ Cow::Cow() {
 }
 
 Cow::Cow(const char * nm, const char * ho, double wt) {
-	delete[] hobby;
 	hobby = new char[strlen(ho) + 1];
 	strcpy(hobby, ho);
 	strcpy(name, nm);
@@ -18,7 +17,6 @@ Cow::Cow(const char * nm, const char * ho, double wt) {
 }
 
 Cow::Cow(const Cow & c) {
-	delete[] hobby;
 	hobby = new char[strlen(c.hobby) + 1];
 	strcpy(hobby, c.hobby);
 	strcpy(name, c.name);
