@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "stock20.h"
 
 Stock::Stock() {
@@ -10,8 +11,8 @@ Stock::Stock() {
 }
 
 Stock::Stock(const char * co, long n, double pr) {
-	company = new char[strlen(co) + 1];
-	strcpy(company, co);
+	company = new char[std::strlen(co) + 1];
+	std::strcpy(company, co);
 
 	if (n < 0) {
 		std::cout << "Number of shares can't be negative; "
@@ -89,19 +90,20 @@ const Stock& Stock::topval(const Stock & s) const {
 		return *this;
 }
 
-std::ostream operator<<(ostream & os, const Stock & s) {
+std::ostream & operator<<(std::ostream & os, const Stock & s) {
 	using std::ios_base;
+	using namespace std;
 	//set format to #.###
 	ios_base::fmtflags orig =
 		os.setf(ios_base::fixed, ios_base::floatfield);
 	std::streamsize prec = os.precision(3);
 
-	os << "Company: " << company
-		<< " Shares: " << shares << '\n';
-	os << " Share Price: $" << share_val;
+	os << "Company: " << s.company
+		<< " Shares: " << s.shares << '\n';
+	os << " Share Price: $" << s.share_val;
 	//set format to #.##
 	os.precision(2);
-	os << " Total Worth: $" << total_val << '\n';
+	os << " Total Worth: $" << s.total_val << '\n';
 
 	//restore original format;
 	os.setf(orig, ios_base::floatfield);

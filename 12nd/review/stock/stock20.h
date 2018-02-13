@@ -1,7 +1,7 @@
 //#pragma once
 #ifndef STOCK20_H_
 #define STOCK20_H_
-#include <string>
+#include <iostream>
 
 class Stock {
 private:
@@ -19,7 +19,7 @@ public:
 	void update(double price);
 	void show() const;
 	const Stock & topval(const Stock & s) const;
-	friend std::ostream operator<<(ostream & os, const Stock & s);
+	friend std::ostream & operator<<(std::ostream & os, const Stock & s);
 };
 
 #endif

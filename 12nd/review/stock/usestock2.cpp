@@ -3,7 +3,7 @@
 
 int main() {
 	Stock mystuff[3] = { Stock("abc"), Stock() };
-	/*{
+	{
 		using std::cout;
 		cout << "Using constructors to create new objects\n";
 		Stock stock1("NanoSmart", 12, 20.0);
@@ -28,6 +28,6 @@ int main() {
 		// stock1.show();
 		cout << stock1;
 		cout << "Done\n";
-	}*/
+	}
 	return 0;
 }
