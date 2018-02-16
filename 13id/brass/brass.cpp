@@ -79,7 +79,7 @@ void BrassPlus::ViewAcct() const {
 	format initialState = setFormat();
 	precis prec = cout.precision(2);
 
-	Brass:ViewAcct();		// display base portion
+	Brass::ViewAcct();		// display base portion
 	cout << "Maximum loan: $" << maxLoan << endl;
 	cout << "Owed to bank: $" << owesBank << endl;
 	cout.precision(3);		// ###.### format
