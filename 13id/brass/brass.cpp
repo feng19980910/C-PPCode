@@ -60,18 +60,18 @@ void Brass::ViewAcct() const {
 
 // BrassPlus Methods
 BrassPlus::BrassPlus(const string & s, long an, double bal,
-	double ml, double r) : Brass(s, an, bal) {
-		maxLoan = ml;
-		owesBank = 0.0;
-		rate = r;
-}
-
-BrassPlus::BrassPlus(const Brass & ba, double ml, double r)
-	: Brass(ba) {		// uses implicit copy constructor
+		double ml, double r) : Brass(s, an, bal) {
 	maxLoan = ml;
 	owesBank = 0.0;
 	rate = r;
 }
+
+BrassPlus::BrassPlus(const Brass & ba, double ml, double r)
+	: Brass(ba) {		// uses implicit copy constructor
+		maxLoan = ml;
+		owesBank = 0.0;
+		rate = r;
+	}
 
 // redefine how ViewAcct() works
 void BrassPlus::ViewAcct() const {
@@ -102,7 +102,7 @@ void BrassPlus::Withdraw(double amt) {
 		cout << "Bank advance: $" << advance << endl;
 		cout << "Finance charge: $" << advance * rate << endl;
 		Deposit(advance);
-		Brass:Withdraw(amt);
+		Brass::Withdraw(amt);
 	}
 	else
 		cout << "Credit limit exceeded. Transaction cancelled.\n";
@@ -111,7 +111,7 @@ void BrassPlus::Withdraw(double amt) {
 format setFormat() {
 	// set up ###.## format
 	return cout.setf(std::ios_base::fixed,
-		std::ios_base::floatfield);
+			std::ios_base::floatfield);
 }
 
 void restore(format f, precis p) {

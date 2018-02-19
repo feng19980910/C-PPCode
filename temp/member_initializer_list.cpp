@@ -5,12 +5,16 @@
 class my {
 	private:
 		int m;
-		char c = 'a';
+		// could not with const, because construct function could initializer 
+		// const member only buy member_initializer_list
+		char c;
 	public:
-		my(int i);
+		my(int i = 0, char ch = ' ');
 		friend std::ostream & operator<<(std::ostream & os, const my & t);
 };
-my::my(int i) : m(i) {}	// initialize class by member initializer list
+my::my(int i, char ch) : m(i) {
+	c = ch;
+}	// initialize class by member initializer list
 std::ostream & operator<<(std::ostream & os, const my & t) {
 	os << '(' << t.m << ", " << t.c << ')';
 	return os;
@@ -18,9 +22,12 @@ std::ostream & operator<<(std::ostream & os, const my & t) {
 
 int main() {
 	my t = 1;
+	// there is a warning as "initializer in constructor function 
+	// are available in C++11 or gun11
+	const my z(2, 'a');  // const object with contructor function
 	int m(2);
 	std::cout << "t = " << t << std::endl;
+	std::cout << "z = " << z << std::endl;
 	std::cout << "m = " << m << std::endl;
 	return 0;
 }
-
