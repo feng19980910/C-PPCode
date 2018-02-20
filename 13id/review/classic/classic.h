@@ -11,7 +11,7 @@ class Cd { // represents a CD disk
 		Cd(const char * s1, const char * s2, int n, double x);
 		// Cd(const Cd & d);
 		Cd();
-		virtual ~Cd();
+		virtual ~Cd() {};
 		virtual void Report() const;		// reports all CD data
 		virtual Cd & operator=(const Cd & d);
 };
