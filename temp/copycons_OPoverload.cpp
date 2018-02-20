@@ -13,11 +13,11 @@ class my {
 };
 my::my(int i) {
 	m = i;
-	cout << "normal constructor";
+	cout << "normal constructor ";
 }
 my::my(const my & t) {
 	m = t.m;
-	cout << "copy constructor";
+	cout << "copy constructor ";
 }
 std::ostream & operator<<(std::ostream & os, const my & t) {
 	os << t.m;
@@ -38,13 +38,16 @@ int main() {
 	my c;
 	cout << endl;
 
-	cout << "a + b : " << endl;
+	cout << "a + b : ";
 	a + b;			// will copy constructor be called at there,
 	cout << endl;
 
-	cout << "c = a + b : " << endl;
+	cout << "c = a + b : ";
 	c = a + b;		// or be called at there?
 	cout << endl;
 
+	cout << "c = 1 : ";
+	c = 1;			// guess: will call normal constructor and copy constructor		// wrong, only call normal constructor
+	cout << endl;
 	return 0;
 }
