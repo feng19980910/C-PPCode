@@ -6,7 +6,7 @@ using std::strcpy;
 using std::cout;
 using std::endl;
 
-Cd::Cd(char * s1, char * s2, int n, double x) {
+Cd::Cd(const char * s1, const char * s2, int n, double x) {
 	strcpy(label, s1);
 	strcpy(performers, s2);
 	selections = n;
@@ -27,9 +27,10 @@ Cd & Cd::operator=(const Cd & d) {
 	strcpy(label, d.label);
 	selections = d.selections;
 	playtime = d.playtime;
+	return *this;
 }
 
-Classic::Classic(char * s0, char * s1, char * s2, int n, double x) : Cd(s1, s2, n, x) {
+Classic::Classic(const char * s0, const char * s1, const char * s2, int n, double x) : Cd(s1, s2, n, x) {
 	mainly = new char[std::strlen(s0) + 1];
 	strcpy(mainly, s0);
 }
@@ -53,4 +54,5 @@ Classic & Classic::operator=(const Classic & c) {
 	delete [] mainly;
 	mainly = new char[std::strlen(c.mainly) + 1];
 	strcpy(mainly, c.mainly);
+	return *this;
 }
