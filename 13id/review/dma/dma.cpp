@@ -1,7 +1,8 @@
 // dma.cpp -- dma class methods
-
 #include "dma.h"
 #include <cstring>
+#include <iostream>
+using std::cout;
 
 // baseDma methods
 baseDMA::baseDMA(const char * l, int r) {
@@ -29,10 +30,9 @@ baseDMA & baseDMA::operator=(const baseDMA & rs) {
 	return * this;
 }
 
-std::ostream & operator<<(std::ostream & os, const baseDMA & rs) {
-	os << "Label: " << rs.label << std::endl;
-	os << "Rating: " << rs.rating << std:: endl;
-	return os;
+void baseDMA::show() {
+	cout << "Label: " << label << std::endl;
+	cout << "Rating: " << rating << std:: endl;
 }
 
 // lacksDMA methods
@@ -48,10 +48,9 @@ lacksDMA::lacksDMA(const char * c, const baseDMA & rs)
 	color[COL_LEN - 1] = '\0';
 }
 
-std::ostream & operator<<(std::ostream & os, const lacksDMA & ls) {
-	os << (const baseDMA &) ls;
-	os << "Color: " << ls.color << std::endl;
-	return os;
+void lacksDMA::show() {
+	baseDMA::show();
+	cout << "Color: " << color << std::endl;
 }
 
 // hasDMA methods
@@ -85,8 +84,7 @@ hasDMA & hasDMA::operator=(const hasDMA & hs) {
 	std::strcpy(style, hs.style);
 	return * this;
 }
-std::ostream & operator<<(std::ostream & os, const hasDMA & hs) {
-	os << (const baseDMA &)hs;
-	os << "Style: " << hs.style << std::endl;
-	return os;
+void hasDMA::show() {
+	baseDMA::show();
+	cout << "Style: " << style << std::endl;
 }

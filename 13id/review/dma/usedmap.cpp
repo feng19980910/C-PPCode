@@ -14,7 +14,7 @@ int main() {
 
 	for (int count = 0; count < QUANTITY; count++) {
 		cout << "Create an object!" << endl;
-		cout << "press 1 for baseDMA, 2 for lackDMA, 3 for hasDMA" << endl;
+		cout << "press 1 for baseDMA, 2 for lacksDMA, 3 for hasDMA" << endl;
 		cin >> type;
 		switch (type) {
 			case 1:
@@ -25,13 +25,13 @@ int main() {
 				p[count] = new baseDMA(str[0], num);
 				break;
 			case 2:
-				cout << "lackDMA:\blabel : ";
+				cout << "lacksDMA:\blabel : ";
 				cin >> str[0];
 				cout << "rating : ";
 				cin >> num;
 				cout << "color : ";
 				cin >> str[1];
-				p[count] = new lackDMA(str[1], str[0], num);
+				p[count] = new lacksDMA(str[1], str[0], num);
 				break;
 			case 3:
 				cout << "hasDma:\blabel : ";
@@ -48,6 +48,6 @@ int main() {
 		}
 	}
 	for (int count = 0; count < QUANTITY; count++)
-		cout << *p[count] << endl;
+		p[count]->show();
 	return 0;
 }
