@@ -1,0 +1,12 @@
+Please input the target length: 20
+Please input the length of one step: 2
+1)	(x, y) = (2, 0.628319)
+2)	(x, y) = (4, 1.01229)
+3)	(x, y) = (6, 6.38791)
+4)	(x, y) = (8, 7.94125)
+5)	(x, y) = (10, 12.6013)
+6)	(x, y) = (12, 13.6659)
+7)	(x, y) = (14, 13.8056)
+8)	(x, y) = (16, 14.1546)
+After 8 steps, succeed!
+(x, y) = (16, 14.1546)
