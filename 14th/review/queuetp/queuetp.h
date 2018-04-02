@@ -4,7 +4,7 @@
 template <class t1>
 class queuetp {
 	private:
-		struct Node { t1 item; Node * next; }
+		struct Node { t1 item; Node * next; };
 		queuetp<t1> * head;
 		queuetp<t1> * tail;
 
@@ -13,8 +13,8 @@ class queuetp {
 		queuetp & operator=(const queuetp & qt) = delete;
 	public:
 		queuetp();
-		bool enqueuetp(const item &it);
-		bool dequeuetp(item & it);
+		bool enqueue(const t1 &it);
+		bool dequeue(t1 & it);
 };
 
 #endif
