@@ -25,6 +25,7 @@ worker & worker::operator=(const worker & wk) {
 	set_name(wk.name);
 	set_number(wk.number);
 	set_vocation(wk.vocation);
+	return *this;
 };
 
 bool worker::set_name(const char * nm) {
