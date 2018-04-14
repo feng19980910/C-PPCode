@@ -25,7 +25,7 @@ class employee : public abstr_emp
 	public:
 		employee();
 		employee(const std::string & fn, const std::string & ln, const std::string & j);
-		virtual ~employee() {}
+		// virtual ~employee() {}
 		virtual void ShowAll() const;
 		virtual void SetAll();
 };
@@ -42,7 +42,7 @@ class manager : virtual public abstr_emp {
 				const std::string & j, int ico = 0);
 		manager(const abstr_emp & e, int ico);
 		manager(const manager & m);
-		virtual ~manager() {}
+		// virtual ~manager() {}
 		virtual void ShowAll() const;
 		virtual void SetAll();
 };
@@ -59,7 +59,7 @@ class fink : virtual public abstr_emp {
 				const std::string & j, const std::string & rpo);
 		fink(const abstr_emp & e, const std::string & rpo);
 		fink(const fink & e);
-		virtual ~fink() {}
+		// virtual ~fink() {}
 		virtual void ShowAll() const;
 		virtual void SetAll();
 };
@@ -74,7 +74,7 @@ class highfink : public manager, public fink {	//management fink
 		highfink(const fink & f, int ico);
 		highfink(const manager & m, const std::string & rpo);
 		highfink(const highfink & h);
-		virtual ~highfink() {}
+		// virtual ~highfink() {}
 		virtual void ShowAll() const;
 		virtual void SetAll();
 };
