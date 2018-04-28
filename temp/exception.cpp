@@ -1,4 +1,5 @@
 // exception.cpp -- do exception mode by myself
+// throw could be anywhere
 #include <iostream>
 #include <string>
 using std::cout;
@@ -99,5 +100,23 @@ int main() {
 	}
 	cout << endl;
 
+	cout << "What if I try to catch the exception, but failed the first time" << endl;
+	try {
+		try {
+			array[3];
+		}
+		catch (int t) {
+			cout << "catch the useless integer " << t << endl;
+			cout << "But could never be used" << endl;
+		}
+	}
+	catch (index_error & ie) {
+		cout << "I catch the exception, outside the first catch!" << endl;
+		cout << "the error information: " << endl;
+		cout << ie.what() << endl;
+		cout << "the illegal index is: " << ie.index() << endl;
+	}
+
+	cout << "Done" << endl;
 	return 0;
 }
