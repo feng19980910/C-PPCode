@@ -53,6 +53,20 @@ int main() {
 	else
 		cout << "Failed" << endl;
 
-	delete pcla;
+	cout << "try to use static_cast to down translate" << endl;
+	if (pclb = static_cast<clb *>(pcla))
+		pclb->say();
+	else
+		cout << "Failed" << endl;
+	// compile passed, but a runtime error take place !!!!!
+
+	cout << "try to use static_cast to unrelated translate" << endl;
+	cout << "not allowed" << endl; // couldn't pass the compiler
+	// if (pcca = static_cast<cca *>(pcla))
+	// 	pcca->say();
+	// else
+	// 	cout << "Failed" << endl;
+
+	// delete pcla;
 	return 0;
 }
